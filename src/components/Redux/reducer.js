@@ -1,6 +1,6 @@
-import { stats } from '../GivenData/stats';
+import { data } from '../GivenData/index';
 
-export default function Reducer(state = stats, { type, payload }) {
+export default function Reducer(state = data, { type, payload }) {
   switch (type) {
     case 'addBill':
       return [payload.data, ...state];

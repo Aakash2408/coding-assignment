@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Input, InputNumber, Button, message } from 'antd';
 import { connect } from 'react-redux';
-import { editBill } from '../Redux/actions';
+import { editBill } from '../redux/action';
 import { EditWrapper } from './style';
 
 function Index({ editBill, visible, setVisible, data }) {

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Wrapper } from './style';
 import { connect } from 'react-redux';
-import { deleteBill } from '../Redux/actions';
+import { deleteBill } from '../redux/action';
 import { Button, Select, Row } from 'antd';
-import EditList from './editList';
+import EditModal from './editList';
+// import BillModal from '../BillModal';
 import styled from 'styled-components';
 
 const { Option } = Select;
@@ -43,7 +44,7 @@ function Index({ billList, deleteBill }) {
 
   return (
     <Wrapper>
-      <EditList visible={visible} setVisible={setVisible} data={editData} />
+      <EditModal visible={visible} setVisible={setVisible} data={editData} />
       <Row className='filter-box'>
         <div>
           <h3>You can filter here</h3>
@@ -52,9 +53,7 @@ function Index({ billList, deleteBill }) {
               <Option value={category}>{category}</Option>
             ))}
           </Select>
-          <div className='due-bill' onClick={() => setVisible(true)}>
-        Due Bill
-      </div>
+          
         </div>
         
         {filter && (

@@ -8,10 +8,10 @@ export const Wrapper = styled.div`
   }
 
   .filter-box {
-    align-items: center;
+    align-items: left;
     margin-bottom: 50px;
     .select-box {
-      width: 300px;
+      width: 320px;
       .ant-select-selector {
         height: 50px;
         border-radius: 10px;
