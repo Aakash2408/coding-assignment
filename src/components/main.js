@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Navbar/Navbar';
 import Input from './UserInput/Input';
 import Table from './Todolist/list';
+import Graph from './Graph/Graph'
 
 
 function main() {
@@ -10,6 +11,7 @@ function main() {
       <Header />
       <Input />
       <Table />
+      <Graph/>
      
     </div>
   );

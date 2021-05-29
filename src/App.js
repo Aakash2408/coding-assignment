@@ -1,6 +1,6 @@
 import './App.css';
 import 'antd/dist/antd.css';
-import Main from './components';
+import Main from './components/main';
 import { Provider } from 'react-redux';
 import configureStore from '../src/components/redux/store/store';
 const store = configureStore();
