@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Input, InputNumber, Button, Row, Col, message } from 'antd';
 import { Wrapper } from './style';
-import { addBill } from '../redux/action';
+import { addBill } from '../../redux/action';
 import { connect } from 'react-redux';
+//localstorage getitems
+// const getLocalItems=()=>{
+//   let list=localStorage.getItem('lists');
+//   console.log(list);
+//   if(list){
+//     return JSON.parse(localStorage.getItem('lists'));
+//   }
+//   else{
+//     return [];
+//   }
+// }
+///////
+
 
 function Index({ addBill, billList }) {
   const [newBill, setNewBill] = useState({
@@ -12,6 +25,18 @@ function Index({ addBill, billList }) {
     amount: null,
     date: new Date().toISOString().slice(0, 10),
   });
+    
+
+  ///local storage
+  useEffect(()=>{
+    console.log("Newbill");
+    localStorage.setItem('lists',JSON.stringify(newBill))
+  },[newBill]);
+  useEffect(()=>{
+    
+    localStorage.setItem('Billlists',JSON.stringify(billList))
+    console.log(localStorage.getItem('Billlists'));
+  },[billList]);
 
   const handleChange = (field) => (e) => {
     setNewBill((prevState) => ({ ...prevState, [field]: field === 'amount' ? e : e.target.value }));
@@ -31,7 +56,7 @@ function Index({ addBill, billList }) {
   return (
     <Wrapper>
       <Row>
-        <Col xs={8} lg={6}>
+        <Col xs={20} lg={6}>
           {/* <p>Amount</p> */}
           <InputNumber
             value={newBill.amount}
@@ -58,8 +83,8 @@ function Index({ addBill, billList }) {
             placeholder="Description"
           />
         </Col>
-        <Col xs={15} lg={6} className='button-box'>
-          <Button onClick={handleAdd} className='button'>
+        <Col xs={20} lg={4} className='button-box'>
+          <Button onClick={handleAdd} className='input-box'>
             Add
           </Button>
         </Col>
